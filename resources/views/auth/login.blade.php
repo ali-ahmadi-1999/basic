@@ -82,7 +82,7 @@
                                         <div class="saprator my-4"><span></span></div>
     
                                         <div class="text-center text-muted mb-4">
-                                            <p class="mb-0">حساب کاربری ندارید؟<a class='text-primary ms-2 fw-medium' href='auth-register.html'>ثبت  نام </a></p>
+                                            <p class="mb-0">حساب کاربری ندارید؟<a class='text-primary ms-2 fw-medium' href='{{ route('register') }}'>ثبت  نام </a></p>
                                         </div>
     
                     
