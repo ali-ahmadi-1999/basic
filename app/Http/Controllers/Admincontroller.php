@@ -1,8 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use App\Mail\VerificationCodeMail;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class Admincontroller extends Controller
 {
@@ -17,6 +21,27 @@ class Admincontroller extends Controller
 
         return redirect('/login');
    
+
+    } //end method
+
+
+    public function AdminLogin(Request $request){
+       
+        $credentials = $request->only('email' , 'password');
+
+        if(Auth::attempt($credentials)){
+           $user = Auth::user();
+         
+           $verificationCode = random_int(100000 , 999999);
+           session(['verification_code' =>   $verificationCode , 'user_id' => $user->id]);
+           Mail::to($user->email)->send(new VerificationCodeMail( $verificationCode ));
+
+           Auth::logout();
+
+           return redirect()->route('custom.verification.form')->with('status' , 'کد به ایمیل ارسال شد ' );
+        }
+      
+        return redirect()->back()->withErrors(['email' => 'invalid Credentials provided ']);
 
     } //end method
 

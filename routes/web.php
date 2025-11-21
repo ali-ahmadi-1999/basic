@@ -26,6 +26,7 @@ require __DIR__.'/auth.php';
 
 
     Route::get('/admin/logout', [Admincontroller::class, 'AdminLogout'])->name('admin.logout');
+    Route::post('/admin/login', [Admincontroller::class, 'AdminLogin'])->name('admin.login');
 
 
 // route admin end
