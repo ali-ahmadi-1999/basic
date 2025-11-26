@@ -7,6 +7,10 @@ use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Session;
+
+
+
 
 class Admincontroller extends Controller
 {
@@ -41,19 +45,35 @@ class Admincontroller extends Controller
            return redirect()->route('custom.verification.form')->with('status' , 'کد به ایمیل ارسال شد ' );
         }
       
-        return redirect()->back()->withErrors(['email' => 'invalid Credentials provided ']);
+        return redirect()->back()->withErrors(['email' => 'مشخات وارد شده اشتباه است ']);
 
     } //end method
 
 
 
+
     public function ShowVerification(){
         return view('auth.verify');
-    }
+    } //end method
 
-   public function VerificationVerify(Request $request){
+    
+
+public function VerificationVerify(Request $request){
        
-    }
+   $request->validate(['code' => 'required|numeric']);
+
+   if($request->code == session('verification_code')){
+    Auth::loginUsingId(session('user_id'));
+
+    session()->forget(['verification_code', 'user_id']);
+    return redirect()->intended('/dashboard');
+
+   }
+
+   
+   return back()->withErrors(['code' => 'کد نامعتبر است ']);
+
+}//end method
 
 
 }
