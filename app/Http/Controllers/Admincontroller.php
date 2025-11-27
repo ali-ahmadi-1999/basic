@@ -76,4 +76,11 @@ public function VerificationVerify(Request $request){
 }//end method
 
 
+
+
+public function AdminProfile(){
+    return view('admin.admin_profile');
+}
+
+
 }

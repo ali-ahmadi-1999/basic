@@ -29,8 +29,13 @@ require __DIR__.'/auth.php';
     Route::post('/admin/login', [Admincontroller::class, 'AdminLogin'])->name('admin.login');
     Route::get('/verify', [Admincontroller::class, 'ShowVerification'])->name('custom.verification.form');
     Route::post('/verify', [Admincontroller::class, 'VerificationVerify'])->name('custom.verification.verify');
+    
 
 
 // route admin end
+
+Route::middleware('auth')->group(function () {
+Route::get('/profile', [Admincontroller::class, 'AdminProfile'])->name('admin.profile');
+});
 
 
