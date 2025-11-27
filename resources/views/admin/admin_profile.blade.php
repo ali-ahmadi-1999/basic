@@ -90,7 +90,7 @@
                                             <label class="form-label"></label>
                                             <div class="col-lg-12 col-xl-12">
                                                         <img src=" {{(!empty( $profiledata->photo)) ? url('upload/user_image/'.$profiledata->photo) :  url('upload/image_photo.jpg') }} "
-                                class="rounded-circle avatar-xxl img-thumbnail float-end" alt="تصویر پروفایل">
+                                class="rounded-circle avatar-xxl img-thumbnail float-end" id="showimage" alt="تصویر پروفایل">
                                             </div>
                                         </div>
 
@@ -101,7 +101,7 @@
                                         <div class="form-group mb-3 row text-end">
                                             <label class="form-label">انتخاب عکس</label>
                                             <div class="col-lg-12 col-xl-12">
-                                                <input class="form-control " name="photo" type="file" value="{{  $profiledata->photo}}">
+                                                <input class="form-control " id="image" name="photo" type="file" value="{{  $profiledata->photo}}">
                                             </div>
                                         </div>
 
@@ -185,6 +185,23 @@
                     </div>
 
              </div>
+
+
+
+ <script >
+    document.getElementById('image').addEventListener('change', function(event) {
+        const file = event.target.files[0];
+
+        if (file) {
+            let reader = new FileReader();
+            reader.onload = function(e) {
+                document.getElementById('showimage').src = e.target.result;
+            };
+            reader.readAsDataURL(file);
+        }
+    });
+</script>
+
 
    
 @endsection
