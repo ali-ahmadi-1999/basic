@@ -25,22 +25,12 @@
 
                     <div class="align-items-center">
                         <div class="d-flex align-items-center flex-row-reverse">
-                            <img src="assets/images/users/user-11.jpg"
+                            <img src=" {{(!empty( $profiledata->photo)) ? url('upload/user_image/'.$profiledata->photo) :  url('upload/image_photo.jpg') }} "
                                 class="rounded-circle avatar-xxl img-thumbnail float-end" alt="تصویر پروفایل">
 
                             <div class="overflow-hidden me-4 text-end">
-                                <h4 class="m-0 text-dark fs-20">آرین رضایی</h4>
-                                <p class="my-1 text-muted fs-16">مهندس نرم‌افزار خلاق و علاقه‌مند به ساخت راهکارهای نوآورانه
-                                </p>
-                                <span class="fs-15">
-                                    <i class="mdi mdi-message ms-2 align-middle"></i>
-                                    زبان‌ها:
-                                    <span>
-                                        فارسی
-                                        <span class="badge bg-primary-subtle text-primary px-2 py-1 fs-13 fw-normal">زبان
-                                            مادری</span>
-                                        ، انگلیسی، ترکی استانبولی
-                                    </span>
+                                <h4 class="m-0 text-dark fs-20">{{$profiledata->photo}}</h4>
+                                <p class="my-1 text-muted fs-16"> {{ $profiledata->email }} </p>
                                 </span>
                             </div>
                         </div>
@@ -64,68 +54,68 @@
                                         </div>
                                     </div>
 
+                                    <form action="" method="POST">
+                                        @csrf
                                     <div class="card-body">
+
                                         <div class="form-group mb-3 row text-end">
                                             <label class="form-label">نام</label>
                                             <div class="col-lg-12 col-xl-12">
-                                                <input class="form-control text-end" type="text" value="Charles">
+                                                <input class="form-control text-end" name="name" type="text" value="{{  $profiledata->name }}">
                                             </div>
                                         </div>
 
-                                        <div class="form-group mb-3 row text-end">
-                                            <label class="form-label">نام خانوادگی</label>
-                                            <div class="col-lg-12 col-xl-12">
-                                                <input class="form-control text-end" type="text" value="Buncle">
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group mb-3 row text-end">
-                                            <label class="form-label">شماره تماس</label>
-                                            <div class="col-lg-12 col-xl-12">
-                                                <div class="input-group">
-                                                    <span class="input-group-text"><i
-                                                            class="mdi mdi-phone-outline"></i></span>
-                                                    <input class="form-control text-end" type="text"
-                                                        placeholder="شماره تماس" aria-describedby="basic-addon1"
-                                                        value="+61 399615">
-                                                </div>
-                                            </div>
-                                        </div>
-
+                                               
                                         <div class="form-group mb-3 row text-end">
                                             <label class="form-label">ایمیل</label>
                                             <div class="col-lg-12 col-xl-12">
-                                                <div class="input-group">
-                                                    <span class="input-group-text"><i class="mdi mdi-email"></i></span>
-                                                    <input type="text" class="form-control text-end"
-                                                        value="CharlesBuncle@dayrep.com" placeholder="ایمیل"
-                                                        aria-describedby="basic-addon1">
-                                                </div>
+                                                <input class="form-control text-end" name="email" type="email" value="{{  $profiledata->email}}">
+                                            </div>
+                                        </div>  
+                                        
+                                        <div class="form-group mb-3 row text-end">
+                                            <label class="form-label"> شماره تلفن </label>
+                                            <div class="col-lg-12 col-xl-12">
+                                                <input class="form-control text-end" name="phone" type="text" value="{{  $profiledata->phone}}">
                                             </div>
                                         </div>
 
-                                        <div class="form-group mb-3 row text-end">
-                                            <label class="form-label">شرکت</label>
+                                         <div class="form-group mb-3 row text-end">
+                                            <label class="form-label">ادرس</label>
                                             <div class="col-lg-12 col-xl-12">
-                                                <input class="form-control text-end" type="text" value="zoyothemes">
+                                           <textarea class="form-control" name="address"> {{ $profiledata->address }}</textarea>
+                                            </div>
+                                        </div>
+                                    <div class="form-group mb-3 row text-end">
+                                            <label class="form-label"></label>
+                                            <div class="col-lg-12 col-xl-12">
+                                                        <img src=" {{(!empty( $profiledata->photo)) ? url('upload/user_image/'.$profiledata->photo) :  url('upload/image_photo.jpg') }} "
+                                class="rounded-circle avatar-xxl img-thumbnail float-end" alt="تصویر پروفایل">
                                             </div>
                                         </div>
 
+
+
+
+
                                         <div class="form-group mb-3 row text-end">
-                                            <label class="form-label">شهر</label>
+                                            <label class="form-label">انتخاب عکس</label>
                                             <div class="col-lg-12 col-xl-12">
-                                                <input class="form-control text-end" type="text" value="Adelaide">
+                                                <input class="form-control " name="photo" type="file" value="{{  $profiledata->photo}}">
                                             </div>
                                         </div>
 
-                                        <div class="form-group mb-3 row text-end">
-                                            <label class="form-label">آدرس</label>
-                                            <div class="col-lg-12 col-xl-12">
-                                                <input class="form-control text-end" type="text" value="Australia">
-                                            </div>
-                                        </div>
+
+
+                     
+                          
+                                            <button type="submit" class="btn btn-primary ">ویرایش</button>
+
+                     
+                     
 
                                     </div><!--end card-body-->
+                                    </form>
                                 </div>
                             </div>
 

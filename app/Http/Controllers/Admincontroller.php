@@ -79,7 +79,9 @@ public function VerificationVerify(Request $request){
 
 
 public function AdminProfile(){
-    return view('admin.admin_profile');
+    $id = Auth::user()->id;
+    $profiledata = User::find($id);
+    return view('admin.admin_profile' , compact('profiledata'));
 }
 
 
