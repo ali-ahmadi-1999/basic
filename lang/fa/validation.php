@@ -150,6 +150,7 @@ return [
         'display_name'          => 'نام نمایشی',
         'resource'              => 'نام ریسورس',
         'old_password'          => 'رمز عبور فعلی',
+        'new_password'          => 'رمز عبور جدید ',
         'newpassword'           => 'رمز عبور جدید',
         'newpassword_confirmation' => 'تکرار رمز عبور جدید',
         'longitude'             => 'طول جغرافیایی',

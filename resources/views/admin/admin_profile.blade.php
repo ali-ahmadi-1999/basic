@@ -131,44 +131,47 @@
                                         </div>
                                     </div>
 
-                                    <form action="" method="POST">
+                                    <form action="{{ route('admin.password.update') }}" method="POST">
                                         @csrf
                                     <div class="card-body mb-0">
                                         <div class="form-group mb-3 row text-end">
                                             <label class="form-label">رمز عبور قدیمی</label>
                                             <div class="col-lg-12 col-xl-12">
-                                                <input class="form-control text-end" id="old_password" @error('old_password')
-                                                    is-invalid
-                                                @enderror name="old_password" type="password"
+                                                <input class="form-control text-end  @error('old_password') is-invalid @enderror " id="old_password" name="old_password" type="password"
                                                     placeholder="رمز عبور قدیمی">
 
-                                                    @error('old_password')
-                                                        {{ $massage }}
+                                               <div class="text-danger">
+                                                     @error('old_password')
+                                                             {{ $message }}
                                                     @enderror
+                                               </div>
                                             </div>
                                         </div>
 
                                         <div class="form-group mb-3 row text-end">
                                             <label class="form-label">رمز عبور جدید</label>
                                             <div class="col-lg-12 col-xl-12">
-                                                <input class="form-control text-end" id="new_password" name="new_password" type="password"
+                                                <input class="form-control text-end  @error('new_password') is-invalid @enderror " id="new_password" name="new_password" type="password"
                                                     placeholder="رمز عبور جدید">
 
-                                                 @error('new_password')
-                                                        {{ $massage }}
+                                                        <div class="text-danger">
+                                                     @error('new_password')
+                                                             {{ $message }}
                                                     @enderror
+                                               </div>
                                             </div>
                                         </div>
 
                                         <div class="form-group mb-3 row text-end">
                                             <label class="form-label"> تکرار رمز عبور جدید</label>
                                             <div class="col-lg-12 col-xl-12">
-                                                <input class="form-control text-end" id="new_password_confirmaion" name="new_password_confirmaion" type="password"
+                                                <input class="form-control text-end  @error('new_password_confirmation') is-invalid @enderror " id="new_password_confirmation" name="new_password_confirmation" type="password"
                                                     placeholder="تأیید رمز عبور">
-                                                     @error('new_password_confirmaion')
-                                                        {{ $massage }}
+                                             <div class="text-danger">
+                                                     @error('new_password_confirmation')
+                                                             {{ $message }}
                                                     @enderror
-
+                                               </div>
                                             </div>
                                         </div>
 
