@@ -137,7 +137,14 @@ public function ProfileStore(Request $request)
 
     // ذخیره تغییرات
     $data->save();
-    return redirect()->back();
+
+            $notification = array (
+           
+            'message' => 'پروفایل ویرایش  شد ',
+            'alert-type'=>'success'
+
+            );
+    return redirect()->back()->with($notification);
 
 }//end method
 

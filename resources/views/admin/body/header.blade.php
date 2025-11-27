@@ -95,12 +95,16 @@
         
                                 </div>
                             </li>
+                            @php
+                                  $id = Auth::user()->id;
+                                  $profiledata = App\Models\User::find($id);
+                            @endphp
         
                             <li class="dropdown notification-list topbar-dropdown">
                                 <a class="nav-link dropdown-toggle nav-user me-0" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
-                                    <img src=" {{ asset('backend/assets/images/users/user-11.jpg') }}" alt="user-image" class="rounded-circle">
+                                    <img src=" {{(!empty( $profiledata->photo)) ? url('upload/user_images/'.$profiledata->photo) :  url('upload/image_photo.jpg') }}" alt="user-image" class="rounded-circle">
                                     <span class="pro-user-name ms-1">
-                                       علی احمدی <i class="mdi mdi-chevron-down"></i> 
+                                      {{ $profiledata->name }}<i class="mdi mdi-chevron-down"></i> 
                                     </span>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-end profile-dropdown ">
