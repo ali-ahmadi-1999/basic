@@ -131,39 +131,55 @@
                                         </div>
                                     </div>
 
+                                    <form action="" method="POST">
+                                        @csrf
                                     <div class="card-body mb-0">
                                         <div class="form-group mb-3 row text-end">
                                             <label class="form-label">رمز عبور قدیمی</label>
                                             <div class="col-lg-12 col-xl-12">
-                                                <input class="form-control text-end" type="password"
+                                                <input class="form-control text-end" id="old_password" @error('old_password')
+                                                    is-invalid
+                                                @enderror name="old_password" type="password"
                                                     placeholder="رمز عبور قدیمی">
+
+                                                    @error('old_password')
+                                                        {{ $massage }}
+                                                    @enderror
                                             </div>
                                         </div>
 
                                         <div class="form-group mb-3 row text-end">
                                             <label class="form-label">رمز عبور جدید</label>
                                             <div class="col-lg-12 col-xl-12">
-                                                <input class="form-control text-end" type="password"
+                                                <input class="form-control text-end" id="new_password" name="new_password" type="password"
                                                     placeholder="رمز عبور جدید">
+
+                                                 @error('new_password')
+                                                        {{ $massage }}
+                                                    @enderror
                                             </div>
                                         </div>
 
                                         <div class="form-group mb-3 row text-end">
-                                            <label class="form-label">تأیید رمز عبور</label>
+                                            <label class="form-label"> تکرار رمز عبور جدید</label>
                                             <div class="col-lg-12 col-xl-12">
-                                                <input class="form-control text-end" type="password"
+                                                <input class="form-control text-end" id="new_password_confirmaion" name="new_password_confirmaion" type="password"
                                                     placeholder="تأیید رمز عبور">
+                                                     @error('new_password_confirmaion')
+                                                        {{ $massage }}
+                                                    @enderror
+
                                             </div>
                                         </div>
 
                                         <div class="form-group row text-end">
                                             <div class="col-lg-12 col-xl-12">
                                                 <button type="submit" class="btn btn-primary">تغییر رمز عبور</button>
-                                                <button type="button" class="btn btn-danger">لغو</button>
                                             </div>
                                         </div>
 
                                     </div><!--end card-body-->
+                                </form>
                                 </div>
                             </div>
 

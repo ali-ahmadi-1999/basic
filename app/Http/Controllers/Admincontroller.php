@@ -149,4 +149,14 @@ public function ProfileStore(Request $request)
 }//end method
 
 
+
+
+
+
+
+public function PasswordUpdate(Request $request){
+
+}
+
+
 }
