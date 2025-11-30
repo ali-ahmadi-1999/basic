@@ -43,16 +43,16 @@
             <li>
                 <a href="#sidebarAuth" data-bs-toggle="collapse">
                     <i data-feather="users"></i>
-                    <span> احراز هویت </span>
+                    <span> بررسی و بازبینی </span>
                     <span class="menu-arrow"></span>
                 </a>
                 <div class="collapse" id="sidebarAuth">
                     <ul class="nav-second-level">
                         <li>
-                            <a href="auth-login.html" class="tp-link">ثبت نام  شده</a>
+                            <a href="auth-login.html" class="tp-link"> همه بررسی‌ها  </a>
                         </li>
                         <li>
-                            <a href="auth-register.html" class="tp-link">ثبت نام </a>
+                            <a href="auth-register.html" class="tp-link">افزودن نقد و بررسی  </a>
                         </li>
                         
                     </ul>
