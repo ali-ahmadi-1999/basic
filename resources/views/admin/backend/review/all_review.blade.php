@@ -29,10 +29,11 @@
 
                         <thead>
                         <tr>
+                            <th>#</th> <!-- شماره ردیف -->
                             <th>نام</th>
                             <th>موقعیت</th>
-                            <th>تصویر</th>
                             <th>پیام</th>
+                            <th>تصویر</th>
                             <th>عملیات</th>
                         </tr>
                         </thead>
@@ -41,10 +42,14 @@
 
                  @foreach ( $review as $key => $item )
                         <tr>
-                            <td>{{ $kry+1 }}</td>
+                            <td>{{ $key+1 }}</td>
                             <td>{{ $item->name }}</td>
                             <td>{{ $item->position }}</td>
-                            <td>   <img src="{{ asset($item->image)" alt="" class="w-75 h-50"> </td>
+
+                            <td>{{Str::limit($item->message, 30, '...') }}</td>
+
+
+                                                        <td>   <img src="{{ asset($item->image)}}" alt="" style="width: 20; height: 10; " > </td>
                             <td>
                                 <a href="" class="btn btn-success sm">ویرایش</a>
                                 <a href="" class=" btn btn-danger sm"> حذف</a>

@@ -26,7 +26,7 @@
                         </div>
                     </div>
 
-                    <form action="{{ route('profile.store') }}" method="POST" enctype="multipart/form-data">
+                    <form action="{{ route('store.review') }}" method="POST" enctype="multipart/form-data">
                         @csrf
 
                         <div class="card-body">
@@ -35,18 +35,25 @@
                             <div class="form-group mb-3 text-end">
                                 <label class="form-label">نام</label>
                                 <input class="form-control text-end" name="name" type="text">
+                           @error('name')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
                             </div>
 
                             <!-- Position -->
                             <div class="form-group mb-3 text-end">
                                 <label class="form-label">موقعیت</label>
                                 <input class="form-control text-end" name="position" type="text">
+                             @error('position')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
                             </div>
 
                             <!-- Message -->
                             <div class="form-group mb-3 text-end">
                                 <label class="form-label">پیام</label>
                                 <textarea class="form-control text-end" name="message"></textarea>
+               
                             </div>
 
                             <!-- Image preview -->
@@ -62,7 +69,10 @@
                             <!-- Upload -->
                             <div class="form-group mb-3 text-end ">
                                 <label class="form-label"></label>
-                                <input class="form-control" id="image" name="photo" type="file">
+                               <input class="form-control" id="image" name="image" type="file">
+                            @error('image')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
                             </div>
 
                             <!-- Submit -->
