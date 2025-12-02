@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admincontroller;
 use App\Http\Controllers\Backend\ReviewController;
+use App\Http\Controllers\Backend\SliderController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -77,4 +78,9 @@ Route::controller(ReviewController::class)->group(function(){
 
 
 
+Route::controller(SliderController::class)->group(function(){
+
+    Route::get('/get/slider', 'GetSlider')->name('get.slider');
+
+});
 

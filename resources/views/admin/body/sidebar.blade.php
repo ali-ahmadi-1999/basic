@@ -43,7 +43,7 @@
             <li>
                 <a href="#sidebarAuth" data-bs-toggle="collapse">
                     <i data-feather="users"></i>
-                    <span> بررسی و بازبینی </span>
+                    <span>  نظرات کاربران  </span>
                     <span class="menu-arrow"></span>
                 </a>
                 <div class="collapse" id="sidebarAuth">
@@ -62,17 +62,15 @@
             <li>
                 <a href="#sidebarError" data-bs-toggle="collapse">
                     <i data-feather="alert-octagon"></i>
-                    <span> خطاها  </span>
+                    <span> اسلایدرها  </span>
                     <span class="menu-arrow"></span>
                 </a>
                 <div class="collapse" id="sidebarError">
                     <ul class="nav-second-level">
                         <li>
-                            <a href="error-404.html" class="tp-link">خطا  403</a>
+                            <a href="{{ route('get.slider') }}" class="tp-link">اسلایدر</a>
                         </li>
-                        <li>
-                            <a href="error-500.html" class="tp-link">خطا 500</a>
-                        </li>
+                
                         
                     </ul>
                 </div>
