@@ -77,7 +77,7 @@
 
                             <!-- Submit -->
                             <div class="text-end">
-                                <button type="submit" class="btn btn-primary">ویرایش</button>
+                                <button type="submit" class="btn btn-primary">ایجاد کاربر </button>
                             </div>
 
                         </div>

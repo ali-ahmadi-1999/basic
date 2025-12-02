@@ -116,4 +116,35 @@ class ReviewController extends Controller
     return redirect()->route('all.review')->with($notification);
 }
 
+
+
+
+
+
+public function DeleteReview($id) {
+    $item = Review::find($id);
+
+   //  if (!$item) {
+   //      $notification = [
+   //          'message' => 'آیتم یافت نشد',
+   //          'alert-type' => 'error'
+   //      ];
+   //      return redirect()->back()->with($notification);
+   //  }
+
+    $img = $item->image;
+    if (file_exists($img)) {
+        unlink($img);
+    }
+
+    $item->delete();
+
+    $notification = [
+        'message' => 'حذف با موفقیت انجام شد',
+        'alert-type' => 'success'
+    ];
+
+    return redirect()->back()->with($notification);
+}
+
 }

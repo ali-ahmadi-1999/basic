@@ -86,6 +86,7 @@
         <!-- Apexcharts JS -->
         <script src=" {{ asset('backend/assets/libs/apexcharts/apexcharts.min.js') }}"></script>
 
+
         <!-- for basic area chart -->
         <script src="https://apexcharts.com/samples/assets/stock-prices.js"></script>
 
@@ -109,6 +110,8 @@
      
 
 
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> 
+ <script src="{{ asset('backend/assets/js/code.js') }}"></script>
 
 
  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
